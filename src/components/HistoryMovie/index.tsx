@@ -12,7 +12,7 @@ interface IHistoryMovie {
 
 function HistoryMovie({ movieId }: IHistoryMovie) {
 	const navigate = useNavigate();
-	const { isLoading, isSuccess, isError, error, data } = useGetByIdQuery(movieId || 0);
+	const { isLoading, isSuccess, data } = useGetByIdQuery(movieId || 0);
 
 	const handleNaviagteCurrentMovie = () => {
 		return navigate(Path.CurrentMovie + "/" + (data as IMovieLong).kinopoiskId);
