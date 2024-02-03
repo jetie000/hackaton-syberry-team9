@@ -15,7 +15,7 @@ export const favoritesSlice = createSlice({
     initialState,
     reducers: {
         removeFavorite: (state, { payload: id }: PayloadAction<number>) => {
-            let idIndex = state.favorites?.findIndex(i => i === id)
+            const idIndex = state.favorites?.findIndex(i => i === id)
             if (idIndex && idIndex !== -1) {
                 state.favorites?.splice(idIndex, 1)
                 localStorage.setItem(variables.FAVORITES_LOCALSTORAGE, JSON.stringify(state.favorites));
