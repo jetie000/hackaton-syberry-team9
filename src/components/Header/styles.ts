@@ -17,6 +17,7 @@ export const wrapper: CustomSxProps = {
 		display: "flex",
 		columnGap: UI_KIT.p8,
 	},
+	zIndex: 5
 };
 
 export const iconStyle: CSSProperties = {
