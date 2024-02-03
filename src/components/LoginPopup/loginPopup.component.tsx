@@ -45,7 +45,7 @@ function LoginPopup({ open, handleClose }: { open: boolean; handleClose: any }) 
 
 	return (
 		<Modal open={open} onClose={handleClose}>
-			<Box>
+			<Box sx={{ width: "500px", margin: "0 auto" }}>
 				<CssBaseline />
 				<Box
 					sx={{
@@ -54,7 +54,8 @@ function LoginPopup({ open, handleClose }: { open: boolean; handleClose: any }) 
 						flexDirection: "column",
 						alignItems: "center",
 						backgroundColor: "white",
-						padding: "10px",
+						padding: "16px",
+						borderRadius: "8px",
 					}}>
 					<Typography component="h1" variant="h5">
 						Sign in
