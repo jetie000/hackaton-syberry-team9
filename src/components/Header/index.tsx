@@ -1,30 +1,51 @@
-import React, { BaseSyntheticEvent, useState } from "react";
+import React, { BaseSyntheticEvent, useEffect, useState } from "react";
 
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 
 import { Avatar, Box, Button, TextField, Typography } from "@mui/material";
-import { buttonCommon, iconStyle, wrapper } from "./styles";
+import { buttonCommon, iconStyle, searchWrapper, wrapper } from "./styles";
 import LoginPopup from "../LoginPopup/loginPopup.component";
-import { RootState } from "@/service/store/store";
+import { RootState } from "../../service/store/store";
 import { useSelector } from "react-redux";
 import { Path } from "../../service/router/RouteLines";
 import { useNavigate } from "react-router";
+import { IMovieShort } from "../../types/movieShort.interface";
+import { useSearchByKeywordQuery } from "../../service/store/api/movieApi";
+
+const SearchList = ({ results }: { results: IMovieShort[] | undefined }) => {
+	const navigate = useNavigate();
+	return results ? (
+		<Box sx={searchWrapper}>
+			{results?.map((res, id) => (
+				<Box onClick={() => navigate(`/currentmovie/${res.kinopoiskId}`)} key={id}>
+					{res.nameRu}
+				</Box>
+			))}
+		</Box>
+	) : null;
+};
 
 const Header = () => {
 	const [open, setOpen] = React.useState(false);
+	const [searchRes, setSearchRes] = useState<IMovieShort[] | undefined>();
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
 	const navigate = useNavigate();
 
 	const [search, setSearch] = useState("");
+
+	const { data, isSuccess, isLoading, error, isError } = useSearchByKeywordQuery({ keyword: search, page: 1 });
+
 	const { user } = useSelector((state: RootState) => state.user);
 	const searchInput = (e: BaseSyntheticEvent) => {
 		setSearch(e.target.value);
 	};
 
-	const searchClickHandler = () => {
-		console.log("hh");
-	};
+	useEffect(() => {
+		if (isSuccess && typeof data !== "string") {
+			setSearchRes(data.films.slice(0, 6));
+		}
+	}, [data]);
 
 	return (
 		<Box sx={wrapper} component="header">
@@ -36,9 +57,7 @@ const Header = () => {
 				<Box></Box>
 				<Box>
 					<TextField size="small" placeholder="search" onInput={searchInput} />
-					<Button variant="contained" sx={buttonCommon} onClick={searchClickHandler}>
-						Find Me
-					</Button>
+					<SearchList results={searchRes} />
 				</Box>
 				{user ? (
 					<Avatar
