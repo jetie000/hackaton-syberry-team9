@@ -6,8 +6,10 @@ import FavoriteMovie from "../../components/FavoriteMovie";
 import { personalAreaWrapper, personalAreaWrapper__title, userDataWrapper, favoritesWrapper } from "./styles";
 import HistoryMovie from "../../components/HistoryMovie";
 import {actions} from "../../service/store/slices/user.slice";
+import { useNavigate } from "react-router";
 
 function PersonalArea() {
+	const navigate = useNavigate()
 	const dispatch = useDispatch();
 	const { user } = useSelector((state: RootState) => state.user);
 	const favoriteIdList = useSelector((state: RootState) => state.favorites);
@@ -34,7 +36,9 @@ function PersonalArea() {
 	}
 
 	function handlelogout() {
+		navigate('/')
 		return dispatch(actions.logout());
+
 	}
 
 	return (

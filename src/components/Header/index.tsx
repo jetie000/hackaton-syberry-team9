@@ -17,7 +17,7 @@ const SearchList = ({ results }: { results: IMovieShort[] | undefined }) => {
 	return results ? (
 		<Box sx={searchWrapper}>
 			{results?.map((res, id) => (
-				<Box onClick={() => navigate(`/currentmovie/${res.kinopoiskId}`)} key={id}>
+				<Box onClick={() => navigate(`/currentmovie/${(res as any).filmId}`)} key={id}>
 					{res.nameRu}
 				</Box>
 			))}
