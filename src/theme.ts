@@ -5,6 +5,7 @@ const theme = createTheme();
 export type CustomSxProps = SxProps<typeof theme>;
 
 const p8 = 8;
+const p12 = 12;
 const p16 = 16;
 const p32 = 32;
 export const UI_KIT = {
@@ -14,10 +15,6 @@ export const UI_KIT = {
 
 	boxShadow1: 1,
 	boxShadow2: 2,
-
-	p8: p8 + "px",
-	p16: p16 + "px",
-	p32: p32 + "px",
 
 	headerHeight: 50 + p8 + p8 + "px",
 };
