@@ -86,4 +86,5 @@ export const {
 	useGetPremiereRandomQuery,
 	useGetReviewsQuery,
 	useGetSimilarsQuery,
+	useGetStaffQuery,
 } = movieApi;
