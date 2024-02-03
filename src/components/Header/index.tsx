@@ -26,14 +26,18 @@ const Header = () => {
     <Box>
         <Logo style={iconStyle} />
         <Typography m="auto 0">КиноСкрыт</Typography>
-    </Box>
-    <Box ml="auto">
+      </Box>
+      <Box ml="auto">
         <Box></Box>
         <Box>
-            <TextField size="small" placeholder="search" onInput={searchInput}/>
-            <Button variant="contained" sx={buttonCommon} onClick={
-                searchClickHandler
-            }>Find Me</Button>
+          <TextField size="small" placeholder="search" onInput={searchInput} />
+          <Button
+            variant="contained"
+            sx={buttonCommon}
+            onClick={searchClickHandler}
+          >
+            Find Me
+          </Button>
         </Box>
         {loggedIn?<Avatar alt={user.name} src={user.img}/>:<Button variant="outlined" size="small" onClick={handleOpen} sx={buttonCommon}>Log In</Button>}
     </Box>
