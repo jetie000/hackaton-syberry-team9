@@ -4,6 +4,7 @@ import { ReactComponent as Logo } from "../../assets/logo.svg";
 
 import { Avatar, Box, Button, TextField, Typography } from "@mui/material";
 import { buttonCommon, iconStyle, wrapper } from "./styles";
+import LoginPopup from "../LoginPopup/loginPopup.component";
 
 const Header = () => {
     const [open, setOpen] = React.useState(false);
@@ -18,7 +19,8 @@ const Header = () => {
     }
 
     const searchClickHandler = () => {
-        null;
+        console.log('hh');
+        
     }
   return <Box sx={wrapper} component="header">
     <Box>
