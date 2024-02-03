@@ -1,9 +1,5 @@
 function CurrentMovie() {
-    return (
-        <main>
-            Страница фильма
-        </main>
-    )
+	return <main>Страница фильма</main>;
 }
 
-export default CurrentMovie
+export default CurrentMovie;

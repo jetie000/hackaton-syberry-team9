@@ -1,6 +1,6 @@
 import React, { BaseSyntheticEvent, useState } from "react";
 
-import {ReactComponent as Logo} from "../../assets/logo.svg"
+import { ReactComponent as Logo } from "../../assets/logo.svg";
 
 import { Avatar, Box, Button, TextField, Typography } from "@mui/material";
 import { buttonCommon, iconStyle, wrapper } from "./styles";
