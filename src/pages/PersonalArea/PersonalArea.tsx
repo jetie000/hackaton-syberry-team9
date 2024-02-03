@@ -1,7 +1,5 @@
 function PersonalArea() {
-    return (
-        <main>Личный кабинет</main>
-    );
+	return <main>Личный кабинет</main>;
 }
 
-export default PersonalArea
+export default PersonalArea;
