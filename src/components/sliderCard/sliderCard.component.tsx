@@ -8,20 +8,23 @@ interface ICardProps {
   year: string;
 }
 
-const SliderCardComponent: React.FC<ICardProps> = ({ poster, title, year }) => {
+const SliderCardComponent = ({ poster, title, year }: ICardProps) => {
   return (
-    <Card>
-      <img src={poster} alt="Poster" />
+    <div>
+      <Card>
+        <img src={poster} alt="Poster" />
 
-      <CardContent>
-        <Typography variant="h5" component="div">
-          {title}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {year}
-        </Typography>
-      </CardContent>
-    </Card>
+        <CardContent>
+          <Typography variant="h5" component="div">
+            {title}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {year}
+          </Typography>
+        </CardContent>
+      </Card>
+    
+    </div>
   );
 };
 
