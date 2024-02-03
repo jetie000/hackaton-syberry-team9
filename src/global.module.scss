@@ -11,4 +11,4 @@ $p8: 8px;
 $p16: 16px;
 $p32: 32px;
 
-$header-height: 50px;
+$header-height: calc(50px + $p8 + $p8);
