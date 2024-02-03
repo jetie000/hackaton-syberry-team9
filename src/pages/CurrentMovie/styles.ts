@@ -49,3 +49,17 @@ export const filmCharachs: CustomSxProps = {
 export const bold: CustomSxProps = {
 	fontWeight: "600",
 };
+
+export const mainRolesSection: CSSProperties = {
+	marginTop: UI_KIT.p32,
+};
+
+export const mainRolesTitle: CSSProperties = {
+	marginBottom: UI_KIT.p32,
+	textAlign: "left"
+};
+
+export const rolesImage: CSSProperties = {
+	maxHeight: "30vh",
+	borderRadius: UI_KIT.p16,
+};
