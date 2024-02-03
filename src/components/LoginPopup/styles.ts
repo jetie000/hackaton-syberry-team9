@@ -1,4 +1,4 @@
-import { CustomSxProps, UI_KIT } from "../../theme";
+import { CustomSxProps, UI_KIT } from "@/theme";
 
 export const wrapper: CustomSxProps = {
 	height: UI_KIT.headerHeight,
