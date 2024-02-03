@@ -2,11 +2,13 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { baseApi } from './api/baseApi'
 import { reducer as userReducer } from './slices/user.slice'
 import { reducer as favoritesReducer } from './slices/favorites.slice'
+import { reducer as watchedReducer } from './slices/watched.slice'
 
 const reducers = combineReducers({
   [baseApi.reducerPath]: baseApi.reducer,
   user: userReducer,
-  favorites: favoritesReducer
+  favorites: favoritesReducer,
+  watched: watchedReducer
 })
 
 export const store = configureStore({
