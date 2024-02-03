@@ -1,11 +1,7 @@
-import styles from './Main.module.scss';
+import styles from "./Main.module.scss";
 
 function Main() {
-    return (
-        <main className={styles.mainWrap}>
-        Главная страница
-        </main>
-    )
+  return <main className={styles.mainWrap}>Главная страница</main>;
 }
 
-export default Main
+export default Main;

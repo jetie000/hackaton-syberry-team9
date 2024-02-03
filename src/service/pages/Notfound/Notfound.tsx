@@ -1,11 +1,7 @@
-import styles from './NotFound.module.scss';
+import styles from "./NotFound.module.scss";
 
 function Notfound() {
-    return (
-        <main className={styles.notfoundWrap}>
-        Страница не найдена
-        </main>
-    )
+  return <main className={styles.notfoundWrap}>Страница не найдена</main>;
 }
 
-export default Notfound
+export default Notfound;
