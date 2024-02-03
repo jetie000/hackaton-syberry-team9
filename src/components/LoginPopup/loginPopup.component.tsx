@@ -1,4 +1,3 @@
-
 import { Path } from "../../service/router/RouteLines";
 import { useActions } from "../../hooks/useActions";
 import {
@@ -19,27 +18,28 @@ import { useRef } from "react";
 import { useNavigate } from "react-router";
 
 function LoginPopup({ open, handleClose }: { open: boolean; handleClose: any }) {
-	const usernameRef = useRef<HTMLInputElement>(null)
-	const loginRef = useRef<HTMLInputElement>(null)
-	const passwordRef = useRef<HTMLInputElement>(null)
+	const usernameRef = useRef<HTMLInputElement>(null);
+	const loginRef = useRef<HTMLInputElement>(null);
+	const passwordRef = useRef<HTMLInputElement>(null);
 	const { setUser } = useActions();
-	const navigate = useNavigate()
+	const navigate = useNavigate();
 
 	const handleClick = () => {
-		if (usernameRef.current &&
+		if (
+			usernameRef.current &&
 			loginRef.current &&
 			passwordRef.current &&
-			passwordRef.current.value !== '' &&
-			usernameRef.current.value !== '' &&
-			loginRef.current.value !== ''
-			) {
+			passwordRef.current.value !== "" &&
+			usernameRef.current.value !== "" &&
+			loginRef.current.value !== ""
+		) {
 			setUser({
 				login: loginRef.current.value,
 				username: usernameRef.current.value,
-				password: passwordRef.current.value
-			})
-			navigate(Path.PersonalArea)
-			handleClose()
+				password: passwordRef.current.value,
+			});
+			navigate(Path.PersonalArea);
+			handleClose();
 		}
 	};
 
@@ -53,8 +53,8 @@ function LoginPopup({ open, handleClose }: { open: boolean; handleClose: any }) 
 						display: "flex",
 						flexDirection: "column",
 						alignItems: "center",
-						backgroundColor: 'white',
-						padding: "10px"
+						backgroundColor: "white",
+						padding: "10px",
 					}}>
 					<Typography component="h1" variant="h5">
 						Sign in
@@ -69,15 +69,7 @@ function LoginPopup({ open, handleClose }: { open: boolean; handleClose: any }) 
 							autoFocus
 							inputRef={usernameRef}
 						/>
-						<TextField
-							margin="normal"
-							required
-							fullWidth
-							id="login"
-							label="Login"
-							autoFocus
-							inputRef={loginRef}
-						/>
+						<TextField margin="normal" required fullWidth id="login" label="Login" autoFocus inputRef={loginRef} />
 						<TextField
 							margin="normal"
 							required

@@ -56,7 +56,7 @@ export const mainRolesSection: CSSProperties = {
 
 export const mainRolesTitle: CSSProperties = {
 	marginBottom: UI_KIT.p32,
-	textAlign: "left"
+	textAlign: "left",
 };
 
 export const rolesImage: CSSProperties = {

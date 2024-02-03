@@ -2,7 +2,18 @@ import { useGetByIdQuery, useGetStaffQuery } from "../../service/store/api/movie
 import { Box, Button, CircularProgress, Typography } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { bold, filmCharachs, imgStyles, infoText, infoWrapper, watchButton, wrapper, rolesImage, mainRolesTitle, mainRolesSection } from "./styles";
+import {
+	bold,
+	filmCharachs,
+	imgStyles,
+	infoText,
+	infoWrapper,
+	watchButton,
+	wrapper,
+	rolesImage,
+	mainRolesTitle,
+	mainRolesSection,
+} from "./styles";
 
 const CurrentMovie = () => {
 	const { movieid } = useParams();
@@ -92,16 +103,14 @@ const CurrentMovie = () => {
 					</Box>
 					{staff.isSuccess && typeof staff.data !== "string" && (
 						<Box style={mainRolesSection}>
-							<Typography variant="h5" component="h5" style={mainRolesTitle} >
+							<Typography variant="h5" component="h5" style={mainRolesTitle}>
 								In the main roles:
 							</Typography>
-							<Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '16px' }}>
+							<Box sx={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: "16px" }}>
 								{staff.data.map((role) => (
 									<Box key={role.staffId}>
 										<img src={role.posterUrl} alt="personImage" style={rolesImage} />
-										<Typography component="p">
-											{role.nameRu}
-										</Typography>
+										<Typography component="p">{role.nameRu}</Typography>
 									</Box>
 								))}
 							</Box>
