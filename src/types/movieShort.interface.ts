@@ -1,4 +1,4 @@
-export interface IMovie {
+export interface IMovieShort {
     kinopoiskId: number
     nameRu: string
     nameEn: string
