@@ -1,5 +1,6 @@
 import "./App.css";
 import Header from "./components/Header";
+import LoginPopup from "./components/LoginPopup/loginPopup.component";
 
 function App() {
 	return (

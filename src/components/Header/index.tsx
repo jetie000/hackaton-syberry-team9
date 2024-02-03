@@ -6,6 +6,10 @@ import { Avatar, Box, Button, TextField, Typography } from "@mui/material";
 import { buttonCommon, iconStyle, wrapper } from "./styles";
 
 const Header = () => {
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+        
     const [search, setSearch] = useState("");
     const loggedIn = true;
     const user = {name: 'Vasya', img: 'lalal'}
@@ -29,8 +33,9 @@ const Header = () => {
                 searchClickHandler
             }>Find Me</Button>
         </Box>
-        {loggedIn?<Avatar alt={user.name} src={user.img}/>:<Button variant="outlined" size="small" sx={buttonCommon}>Log In</Button>}
+        {loggedIn?<Avatar alt={user.name} src={user.img}/>:<Button variant="outlined" size="small" onClick={handleOpen} sx={buttonCommon}>Log In</Button>}
     </Box>
+    <LoginPopup handleClose={handleClose} open={open}/>
   </Box>;
 };
 
