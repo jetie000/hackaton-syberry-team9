@@ -1,6 +1,5 @@
 // ===================== Material UI =====================
-import { Card, CardContent, Typography } from '@mui/material';
-
+import { Card, CardContent, Typography } from "@mui/material";
 
 interface ICardProps {
   poster: string;
@@ -23,7 +22,6 @@ const SliderCardComponent = ({ poster, title, year }: ICardProps) => {
           </Typography>
         </CardContent>
       </Card>
-    
     </div>
   );
 };
