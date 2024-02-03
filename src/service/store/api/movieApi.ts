@@ -1,14 +1,14 @@
-import { ISearchResp } from "@/types/responses/searchResp.interface";
+import { ISearchResp } from "../../../types/responses/searchResp.interface";
 import { baseApi } from "./baseApi";
-import { ITopResp } from "@/types/responses/topResp.interface";
-import { IMovieLong } from "@/types/movieLong.interface";
-import { IPremiereResp } from "@/types/responses/premiereResp.interface";
-import { ISimilarResp } from "@/types/responses/similarResp.interface";
-import { IImagesResp } from "@/types/responses/imagesResp.interface";
-import { IFactsResp } from "@/types/responses/factsResp.interface";
-import { IReviewResp } from "@/types/responses/reviewResp.interface";
-import { IAwardsResp } from "@/types/responses/awardsResp.interface";
-import { IStaffResp } from "@/types/responses/staffResp.interface";
+import { ITopResp } from "../../../types/responses/topResp.interface";
+import { IMovieLong } from "../../../types/movieLong.interface";
+import { IPremiereResp } from "../../../types/responses/premiereResp.interface";
+import { ISimilarResp } from "../../../types/responses/similarResp.interface";
+import { IImagesResp } from "../../../types/responses/imagesResp.interface";
+import { IFactsResp } from "../../../types/responses/factsResp.interface";
+import { IReviewResp } from "../../../types/responses/reviewResp.interface";
+import { IAwardsResp } from "../../../types/responses/awardsResp.interface";
+import { IStaffResp } from "../../../types/responses/staffResp.interface";
 
 export const movieApi = baseApi.injectEndpoints({
 	endpoints: (builder) => ({
