@@ -25,12 +25,12 @@ const Header = () => {
 	const searchClickHandler = () => {
 		console.log("hh");
 	};
-    
+
 	return (
 		<Box sx={wrapper} component="header">
-			<Box onClick={() => navigate('/')}>
+			<Box onClick={() => navigate('/')} sx={{cursor: 'pointer'}}>
 				<Logo style={iconStyle} />
-				<Typography m="auto 0">КиноСкрыт</Typography>
+				<Typography m="auto 0">Cinema Bird</Typography>
 			</Box>
 			<Box ml="auto">
 				<Box></Box>
@@ -41,7 +41,7 @@ const Header = () => {
 					</Button>
 				</Box>
 				{user ? (
-					<Avatar alt={user.username} src="ava.png" onClick={() => navigate(Path.PersonalArea)}/>
+					<Avatar sx={{cursor: 'pointer'}} alt={user.username} src="ava.png" onClick={() => navigate(Path.PersonalArea)}/>
 				) : (
 					<Button variant="outlined" size="small" onClick={handleOpen} sx={buttonCommon}>
 						Log In

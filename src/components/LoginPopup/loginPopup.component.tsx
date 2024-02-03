@@ -29,13 +29,17 @@ function LoginPopup({ open, handleClose }: { open: boolean; handleClose: any }) 
 		if (usernameRef.current &&
 			loginRef.current &&
 			passwordRef.current &&
-			passwordRef.current) {
+			passwordRef.current.value !== '' &&
+			usernameRef.current.value !== '' &&
+			loginRef.current.value !== ''
+			) {
 			setUser({
 				login: loginRef.current.value,
 				username: usernameRef.current.value,
 				password: passwordRef.current.value
 			})
 			navigate(Path.PersonalArea)
+			handleClose()
 		}
 	};
 
@@ -49,7 +53,8 @@ function LoginPopup({ open, handleClose }: { open: boolean; handleClose: any }) 
 						display: "flex",
 						flexDirection: "column",
 						alignItems: "center",
-						flexGrow: 0
+						backgroundColor: 'white',
+						padding: "10px"
 					}}>
 					<Typography component="h1" variant="h5">
 						Sign in
