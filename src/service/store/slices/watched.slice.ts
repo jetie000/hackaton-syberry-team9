@@ -1,4 +1,4 @@
-import { variables } from "@/helpers/variables";
+import { variables } from "../../../helpers/variables";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 

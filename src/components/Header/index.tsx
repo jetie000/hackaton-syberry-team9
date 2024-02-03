@@ -5,15 +5,19 @@ import { ReactComponent as Logo } from "../../assets/logo.svg";
 import { Avatar, Box, Button, TextField, Typography } from "@mui/material";
 import { buttonCommon, iconStyle, wrapper } from "./styles";
 import LoginPopup from "../LoginPopup/loginPopup.component";
+import { RootState } from "@/service/store/store";
+import { useSelector } from "react-redux";
+import { Path } from "../../service/router/RouteLines";
+import { useNavigate } from "react-router";
 
 const Header = () => {
 	const [open, setOpen] = React.useState(false);
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
+    const navigate = useNavigate()
 
 	const [search, setSearch] = useState("");
-	const loggedIn = true;
-	const user = { name: "Vasya", img: "lalal" };
+	const { user } = useSelector((state: RootState) => state.user);
 	const searchInput = (e: BaseSyntheticEvent) => {
 		setSearch(e.target.value);
 	};
@@ -21,9 +25,10 @@ const Header = () => {
 	const searchClickHandler = () => {
 		console.log("hh");
 	};
+    
 	return (
 		<Box sx={wrapper} component="header">
-			<Box>
+			<Box onClick={() => navigate('/')}>
 				<Logo style={iconStyle} />
 				<Typography m="auto 0">КиноСкрыт</Typography>
 			</Box>
@@ -35,8 +40,8 @@ const Header = () => {
 						Find Me
 					</Button>
 				</Box>
-				{loggedIn ? (
-					<Avatar alt={user.name} src={user.img} />
+				{user ? (
+					<Avatar alt={user.username} src="ava.png" onClick={() => navigate(Path.PersonalArea)}/>
 				) : (
 					<Button variant="outlined" size="small" onClick={handleOpen} sx={buttonCommon}>
 						Log In
