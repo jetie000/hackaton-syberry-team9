@@ -1,4 +1,4 @@
-import { Routes, Route, } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import CurrentMovie from "@/pages/CurrentMovie/CurrentMovie";
 import Favorites from "@/pages/Favorites/Favorites";

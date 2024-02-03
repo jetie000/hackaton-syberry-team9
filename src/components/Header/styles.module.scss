@@ -1,4 +1,4 @@
-@import '../../global.module.scss';
+@import "../../global.module.scss";
 
 .wrapper {
   height: $header-height;
@@ -16,16 +16,15 @@
   }
 }
 
-.searchBar{
-
-    margin-left: auto;
+.searchBar {
+  margin-left: auto;
 }
 
-.icon{
-    max-height: $header-height;
-    width: auto;
+.icon {
+  max-height: $header-height;
+  width: auto;
 }
 
-.secondaryButton{
-    font-size: $p16;
+.secondaryButton {
+  font-size: $p16;
 }
