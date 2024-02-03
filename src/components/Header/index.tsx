@@ -14,7 +14,7 @@ const Header = () => {
 	const [open, setOpen] = React.useState(false);
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
-    const navigate = useNavigate()
+	const navigate = useNavigate();
 
 	const [search, setSearch] = useState("");
 	const { user } = useSelector((state: RootState) => state.user);
@@ -28,7 +28,7 @@ const Header = () => {
 
 	return (
 		<Box sx={wrapper} component="header">
-			<Box onClick={() => navigate('/')} sx={{cursor: 'pointer'}}>
+			<Box onClick={() => navigate("/")} sx={{ cursor: "pointer" }}>
 				<Logo style={iconStyle} />
 				<Typography m="auto 0">Cinema Bird</Typography>
 			</Box>
@@ -41,7 +41,12 @@ const Header = () => {
 					</Button>
 				</Box>
 				{user ? (
-					<Avatar sx={{cursor: 'pointer'}} alt={user.username} src="ava.png" onClick={() => navigate(Path.PersonalArea)}/>
+					<Avatar
+						sx={{ cursor: "pointer" }}
+						alt={user.username}
+						src="ava.png"
+						onClick={() => navigate(Path.PersonalArea)}
+					/>
 				) : (
 					<Button variant="outlined" size="small" onClick={handleOpen} sx={buttonCommon}>
 						Log In

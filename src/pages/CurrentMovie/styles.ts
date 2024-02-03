@@ -52,11 +52,12 @@ export const bold: CustomSxProps = {
 
 export const mainRolesSection: CSSProperties = {
 	marginTop: UI_KIT.p32,
+	marginBottom: UI_KIT.p32,
 };
 
 export const mainRolesTitle: CSSProperties = {
 	marginBottom: UI_KIT.p32,
-	textAlign: "left"
+	textAlign: "left",
 };
 
 export const rolesImage: CSSProperties = {
