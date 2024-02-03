@@ -1,4 +1,4 @@
-import { Card, CardContent, Typography } from '@mui/material';
+import { Card, CardContent, Typography } from "@mui/material";
 
 export interface ICardProps {
   poster: string;
@@ -7,7 +7,12 @@ export interface ICardProps {
   onClickHandler?: (event: React.MouseEvent<HTMLElement>) => void;
 }
 
-const SliderCardComponent = ({ poster, title, year, onClickHandler }: ICardProps) => {
+const SliderCardComponent = ({
+  poster,
+  title,
+  year,
+  onClickHandler,
+}: ICardProps) => {
   return (
     <Card onClick={onClickHandler}>
       <img src={poster} alt="Poster" />
