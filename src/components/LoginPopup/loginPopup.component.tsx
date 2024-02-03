@@ -1,3 +1,6 @@
+
+import { Path } from "../../service/router/RouteLines";
+import { useActions } from "../../hooks/useActions";
 import {
 	Avatar,
 	Button,
@@ -5,16 +8,39 @@ import {
 	CssBaseline,
 	FormControlLabel,
 	Grid,
+	Input,
 	Link,
 	TextField,
 	Typography,
 } from "@mui/material";
 import Modal from "@mui/material/Modal";
 import { Box, Container } from "@mui/system";
+import { useRef } from "react";
+import { useNavigate } from "react-router";
 
 function LoginPopup({ open, handleClose }: { open: boolean; handleClose: any }) {
-	const handleSubmit = () => {
-		console.log("kk");
+	const usernameRef = useRef<HTMLInputElement>(null)
+	const loginRef = useRef<HTMLInputElement>(null)
+	const passwordRef = useRef<HTMLInputElement>(null)
+	const { setUser } = useActions();
+	const navigate = useNavigate()
+
+	const handleClick = () => {
+		if (usernameRef.current &&
+			loginRef.current &&
+			passwordRef.current &&
+			passwordRef.current.value !== '' &&
+			usernameRef.current.value !== '' &&
+			loginRef.current.value !== ''
+			) {
+			setUser({
+				login: loginRef.current.value,
+				username: usernameRef.current.value,
+				password: passwordRef.current.value
+			})
+			navigate(Path.PersonalArea)
+			handleClose()
+		}
 	};
 
 	return (
@@ -27,20 +53,30 @@ function LoginPopup({ open, handleClose }: { open: boolean; handleClose: any }) 
 						display: "flex",
 						flexDirection: "column",
 						alignItems: "center",
+						backgroundColor: 'white',
+						padding: "10px"
 					}}>
 					<Typography component="h1" variant="h5">
 						Sign in
 					</Typography>
-					<Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+					<Box component="form" noValidate sx={{ mt: 1 }}>
 						<TextField
 							margin="normal"
 							required
 							fullWidth
-							id="email"
-							label="Email Address"
-							name="email"
-							autoComplete="email"
+							id="username"
+							label="Username"
 							autoFocus
+							inputRef={usernameRef}
+						/>
+						<TextField
+							margin="normal"
+							required
+							fullWidth
+							id="login"
+							label="Login"
+							autoFocus
+							inputRef={loginRef}
 						/>
 						<TextField
 							margin="normal"
@@ -51,23 +87,11 @@ function LoginPopup({ open, handleClose }: { open: boolean; handleClose: any }) 
 							type="password"
 							id="password"
 							autoComplete="current-password"
+							inputRef={passwordRef}
 						/>
-						<FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Remember me" />
-						<Button fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+						<Button onClick={handleClick} fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
 							Sign In
 						</Button>
-						<Grid container>
-							<Grid item xs>
-								<Link href="#" variant="body2">
-									Forgot password?
-								</Link>
-							</Grid>
-							<Grid item>
-								<Link href="#" variant="body2">
-									{"Don't have an account? Sign Up"}
-								</Link>
-							</Grid>
-						</Grid>
 					</Box>
 				</Box>
 			</Box>
