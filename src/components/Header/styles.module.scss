@@ -1,0 +1,12 @@
+@import '../../global.module.scss';
+
+.wrapper {
+  border-bottom: 1px solid $grey;
+  height: $header-height;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  padding: $p8 $p32;
+  justify-content: space-between;
+  color: $primary-text;
+}
