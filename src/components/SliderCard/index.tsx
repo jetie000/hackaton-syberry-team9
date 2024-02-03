@@ -1,18 +1,16 @@
-// ===================== Material UI =====================
 import { Card, CardContent, Typography } from '@mui/material';
 
-
-interface ICardProps {
+export interface ICardProps {
   poster: string;
   title: string;
   year: string;
+  onClickHandler?: (event: React.MouseEvent<HTMLElement>) => void;
 }
 
-const SliderCardComponent: React.FC<ICardProps> = ({ poster, title, year }) => {
+const SliderCardComponent = ({ poster, title, year, onClickHandler }: ICardProps) => {
   return (
-    <Card>
+    <Card onClick={onClickHandler}>
       <img src={poster} alt="Poster" />
-
       <CardContent>
         <Typography variant="h5" component="div">
           {title}
