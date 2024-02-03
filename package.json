@@ -28,7 +28,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint ./ --cache --ignore-pattern .gitignore",
+    "pretty": "npx prettier --write ."
   },
   "eslintConfig": {
     "extends": [
@@ -47,5 +49,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "pre-commit": [
+    "lint",
+    "pretty"
+  ],
+  "devDependencies": {
+    "pre-commit": "^1.2.2",
+    "prettier": "^3.2.4"
   }
 }
