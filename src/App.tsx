@@ -1,13 +1,19 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import { Provider } from "react-redux";
+import { store } from "./service/store/store";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-    </div>
+    <Provider store={store}>
+      <BrowserRouter>
+        <div className="App">
+          <Header />
+        </div>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
