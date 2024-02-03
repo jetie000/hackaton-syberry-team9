@@ -7,6 +7,7 @@ export const movieApi = baseApi.injectEndpoints({
     })
 })
 
+// eslint-disable-next-line no-empty-pattern
 export const {
     
 } = movieApi
