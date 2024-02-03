@@ -28,3 +28,20 @@ export const buttonCommon: CustomSxProps = {
 	fontSize: UI_KIT.p12,
 	textTransform: "none",
 };
+
+export const searchWrapper: CustomSxProps = {
+	position: "absolute",
+	display: "flex",
+	zIndex: 3,
+	flexDirection: "column",
+	top: UI_KIT.headerHeight,
+	backgroundColor: "white",
+	"&>div": {
+		borderBottom: "1px solid grey",
+		width: "100%",
+		padding: "4px",
+		"&:hover": {
+			backgroundColor: "lightgrey",
+		},
+	},
+};

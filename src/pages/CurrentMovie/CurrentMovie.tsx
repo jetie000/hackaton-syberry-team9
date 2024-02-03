@@ -16,7 +16,6 @@ import {
 } from "./styles";
 import Slider from "../../components/Slider";
 
-
 const CurrentMovie = () => {
 	const { movieid } = useParams();
 	const navigate = useNavigate();
@@ -121,7 +120,6 @@ const CurrentMovie = () => {
 										</Box>
 									))}
 								</Box>
-
 							</Box>
 						)
 					)}
