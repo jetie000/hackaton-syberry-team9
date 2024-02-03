@@ -1,8 +1,21 @@
-import { useGetByIdQuery, useGetStaffQuery } from "../../service/store/api/movieApi";
+import { useGetByIdQuery, useGetStaffQuery, useGetTopQuery } from "../../service/store/api/movieApi";
 import { Box, Button, CircularProgress, Typography } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { bold, filmCharachs, imgStyles, infoText, infoWrapper, watchButton, wrapper, rolesImage, mainRolesTitle, mainRolesSection } from "./styles";
+import {
+	bold,
+	filmCharachs,
+	imgStyles,
+	infoText,
+	infoWrapper,
+	watchButton,
+	wrapper,
+	rolesImage,
+	mainRolesTitle,
+	mainRolesSection,
+} from "./styles";
+import Slider from "../../components/Slider";
+
 
 const CurrentMovie = () => {
 	const { movieid } = useParams();
@@ -10,6 +23,7 @@ const CurrentMovie = () => {
 	console.log(movieid);
 	const { isLoading, isSuccess, data, isError, error } = useGetByIdQuery(+(movieid || -1));
 	const staff = useGetStaffQuery(+(movieid || -1));
+	const topLat = useGetTopQuery({ page: 1, type: "TOP_POPULAR_ALL" });
 
 	const [director, setDirector] = useState<undefined | string>();
 
@@ -90,22 +104,31 @@ const CurrentMovie = () => {
 							<Typography>{data.description}</Typography>
 						</Box>
 					</Box>
-					{staff.isSuccess && typeof staff.data !== "string" && (
-						<Box style={mainRolesSection}>
-							<Typography variant="h5" component="h5" style={mainRolesTitle} >
-								In the main roles:
-							</Typography>
-							<Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '16px' }}>
-								{staff.data.map((role) => (
-									<Box key={role.staffId}>
-										<img src={role.posterUrl} alt="personImage" style={rolesImage} />
-										<Typography component="p">
-											{role.nameRu}
-										</Typography>
-									</Box>
-								))}
+					{staff.isLoading ? (
+						<CircularProgress />
+					) : (
+						staff.isSuccess &&
+						typeof staff.data !== "string" && (
+							<Box style={mainRolesSection}>
+								<Typography variant="h5" component="h5" style={mainRolesTitle}>
+									In the main roles:
+								</Typography>
+								<Box sx={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: "16px" }}>
+									{staff.data.slice(0, 12).map((role) => (
+										<Box key={role.staffId}>
+											<img src={role.posterUrl} alt="personImage" style={rolesImage} />
+											<Typography component="p">{role.nameRu}</Typography>
+										</Box>
+									))}
+								</Box>
+
 							</Box>
-						</Box>
+						)
+					)}
+					{topLat.isLoading ? (
+						<CircularProgress />
+					) : (
+						topLat.isSuccess && typeof topLat.data !== "string" && <Slider cards={topLat.data} />
 					)}
 				</>
 			)}
