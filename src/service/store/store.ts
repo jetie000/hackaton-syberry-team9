@@ -1,8 +1,12 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { baseApi } from "./api/baseApi";
+import { reducer as userReducer } from "./slices/user.slice";
+import { reducer as favoritesReducer } from "./slices/favorites.slice";
 
 const reducers = combineReducers({
 	[baseApi.reducerPath]: baseApi.reducer,
+	user: userReducer,
+	favorites: favoritesReducer,
 });
 
 export const store = configureStore({
