@@ -1,12 +1,14 @@
-import { Box, Typography } from "@mui/material";
-import { useSelector } from "react-redux";
+import { Box, Button, Typography } from "@mui/material";
+import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/service/store/store";
 
 import FavoriteMovie from "../../components/FavoriteMovie";
 import { personalAreaWrapper, personalAreaWrapper__title, userDataWrapper, favoritesWrapper } from "./styles";
 import HistoryMovie from "../../components/HistoryMovie";
+import {actions} from "../../service/store/slices/user.slice";
 
 function PersonalArea() {
+	const dispatch = useDispatch();
 	const { user } = useSelector((state: RootState) => state.user);
 	const favoriteIdList = useSelector((state: RootState) => state.favorites);
 	const historyIdList = useSelector((state: RootState) => state.history);
@@ -31,6 +33,10 @@ function PersonalArea() {
 		});
 	}
 
+	function handlelogout() {
+		return dispatch(actions.logout());
+	}
+
 	return (
 		<Box sx={personalAreaWrapper} component="main">
 			<Typography variant="h4" component="h4" sx={personalAreaWrapper__title}>
@@ -39,6 +45,9 @@ function PersonalArea() {
 			<Typography variant="h5" component="h5" sx={personalAreaWrapper__title}>
 				User data
 			</Typography>
+			<Button variant="outlined" onClick={handlelogout}>
+				Logout
+			</Button>
 			<Box sx={userDataWrapper}>
 				<Typography variant="body1" component="span" sx={personalAreaWrapper__title}>
 					Name: {user?.username}
