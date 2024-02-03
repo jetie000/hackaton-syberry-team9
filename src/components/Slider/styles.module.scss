@@ -1,0 +1,9 @@
+.swiper{
+    & ~ div{
+        min-height: 30vh;
+        box-sizing: border-box;
+        & > div {
+            height: 100%;
+         }
+    }
+}
